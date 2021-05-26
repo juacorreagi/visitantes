@@ -9,7 +9,10 @@ app.get('/', (request, response) => {
     mongoose.connection.on('error', (e) => console.log(e));
     mongoose.connection.once('open', () => console.log('Mongoose Connected'));
     const dataSchema = mongoose.Schema({
-        name : String,
+        name : {
+            type : String,
+            default: "Anónimo",
+        },
         date : Date,
     });
 
